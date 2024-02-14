@@ -51,6 +51,7 @@ git commit -m "nome do commit", lembre-se que após o commit é feito uma unica 
 git branch -M main - isso vai garantir que a branch vai ser do tipo main
 git remote add nome_repositorio repositorio_remoto(ssh) - isso vai fazer a integração do repositorio git local para o repositorio remoto(permitindo enviar ou receber alterações entre eles)
 git push -u repositorio_local branch(main) - ele vai enviar os commits locais para o repositorio remoto.
+git remote -v mostra os repositorios remotos associado aos repositorio local dentro desse diretorio 
 
 CASO VOCÊ QUEIRA INTEGRAR VÁRIOS REPOSITORIOS LOCAIS PARA UM UNICO REPOSITORIO REMOTO:
 git pull --rebase repositorio_local branch(branch do repositorio remoto) - ISSO VAI GARANTIR VOCÊ INTEGRAR VÁRIOS COMMITS LOCAIS DE DIFERENTE DIRETORIO A UM REPOSITORIO REMOTO
