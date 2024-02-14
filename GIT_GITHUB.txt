@@ -1,0 +1,66 @@
+CONCEITOS
+GIT E GITHUB
+VERSIONAMENTO DE CODIGO:
+VERSIONAMENTO DE CODIGO É NADA MAIS QUE VÁRIAS VERSÕES ATUALIZADA DO CODIGO PRIMARIO, O VERSIONAMENTO TEM COMO FUNÇÃO
+GERENCIAR AS ALTERAÇÕES COM DATA , AUTOR DA ALTERAÇÃO E ETC, SERIA MAIS OU MENOS UMA IDEIA DE HISTORICO MANTENDO A ORGANIZAÇÃO, CONTROLE E SEGURANÇA.
+
+
+GIT É UM CONTROLE DE VERSÃO DISTRIBUIDO(DVCS)
+GIT PERMITE A POSSIBILIDADE DE CRIAR VERSÕES MESMO SEM UMA CONEXÃO DE REDE
+GIT ELE É OPEN SOURCE(CÓDIGO ABERTO);
+
+
+CONFIGURAÇÃO:
+NOME DO USUARIO - git config --global user.name "Thalisson"
+EMAIL - git config --global user.email thalissonmoura55@gmail.com
+git config --global init.defaultBranch main  (vai alterar  a branch padrão para main)
+git config --global --list  (vai listar todas as configurações feitas globalmente)
+
+CRIANDO UMA PASTA SSH:
+mkdir .ssh (criando uma pasta .ssh)
+cd .ssh (entre na pasta .ssh)
+
+GERANDO CHAVE SSH:
+{ssh-keygen -t ed25519 -C "emailgithub@gmail.com" (gerando uma chave de acesso SSH)
+ssh-keygen: comando para gerar chaves SSH.
+-t ed25519: Especifica o tipo de algoritmo de chave a ser usado. Neste caso, ed25519 é um algoritmo moderno e seguro para chaves SSH.
+-C "emailgithub@gmail.com": Este é o comentário que será adicionado à chave.ssh-keygen}
+
+MAIS SOBRE O SSH:
+eval "$(ssh-agent -s)" - ISSO VAI INICIAR O AGENTE SSH
+ssh-add ~/.ssh/id_ed25519 - ESTAMOS ADICIONANDO A CHAVE SSH AO AGENTE SSH
+
+A CONFIGURAÇÃO DO SSH É MAIS DO QUE UMA FERRAMENTE DE CLONE DE REPOSITORIO, O SSH VAI PERMITIR INTEGRAR REPOSITORIO LOCAIS PARA REPOSITORIO REMOTOS ATRAVÉS DA AUTENTICAÇÃO DO AGENTE SSH QUE UMA VEZ CONFIGURADO, SERÁ NECESSÁRIO SOMENTE A SENHA DE SUA CRIAÇÃO PARA AUTENTICAÇÃO
+
+CRIANDO E CLONADO REPOSITORIO
+PARA CLONAR UM REPOSITORIO
+git clone ssh nomedoarquivo(opcional) - (vai clonar um repositorio remoto para o repositorio local desejado)
+
+OBS: quando você clona um repositorio privado, é provavel que ele peça uma autenticação como forma de comprovar que esse repositorio foi liberado para acesso a você, essa autenticação vai depender da maneira que você clonar o repósitorio, seja por ssh ou https, se for por ssh ele vai exigir uma chave ssh pra permitir a clonagem, caso seja https, ele vai pedir uma chave token
+
+repositorio remoto seria a ideia de um repositorio que está localizado em outro lugar, fora do seu sistema local,como por exemplo o github,github é uma plataforma de hospedagem de código, que vai hospedar de maneira remota(fora do sistema local) os códigos.
+
+
+INTEGRANDO REPOSITORIO LOCAL A UM REPOSITORIO REMOTO
+cd pasta_repositorio_local
+git init - usado para inicar um novo repositorio git em um diretorio local
+git status - verifica os status dos arquivos que foram ou não foram adicionados ao repositorio git
+git add nome_arquivo nome arquivo ou apenas seleciona tudo com *  ou . (ISSO VAI GARANTIR QUE VOCÊ ADICINOU UM ARQUIVO PARA O REPOSITORIO GIT OU VÁRIOS ARQUIVOS)
+git status - para verificação
+git commit -m "nome do commit", lembre-se que após o commit é feito uma unica vez, e ele é usado para indetificar o que é ou o que foi feito no repositorio git
+git branch -M main - isso vai garantir que a branch vai ser do tipo main
+git remote add nome_repositorio repositorio_remoto(ssh) - isso vai fazer a integração do repositorio git local para o repositorio remoto(permitindo enviar ou receber alterações entre eles)
+git push -u repositorio_local branch(main) - ele vai enviar os commits locais para o repositorio remoto.
+
+CASO VOCÊ QUEIRA INTEGRAR VÁRIOS REPOSITORIOS LOCAIS PARA UM UNICO REPOSITORIO REMOTO:
+git pull --rebase repositorio_local branch(branch do repositorio remoto) - ISSO VAI GARANTIR VOCÊ INTEGRAR VÁRIOS COMMITS LOCAIS DE DIFERENTE DIRETORIO A UM REPOSITORIO REMOTO
+
+COMANDOS BÁSICOS BASTANTE UTILIZADO NOS TERMINAIS:
+cd - selecionar uma pasta
+ls - vai listar tudo que está visivel dentro desse diretorio
+ls -al - isso vai listar tudo que está visivel e não visivel dentro desse diretorio
+cd .. - vai voltar um diretorio
+mkdir - usado para criar pastas
+touch - usado para criar arquivos(ex:. .js,.html,.txt,etc..) ou seja, arquivos de textos
+--version = isso vai mostrar a versão utilizada desse programa
+cat - vai mostrar o conteudo de texto desse arquivo
