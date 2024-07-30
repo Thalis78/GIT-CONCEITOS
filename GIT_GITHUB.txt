@@ -30,6 +30,17 @@ MAIS SOBRE O SSH:
 eval "$(ssh-agent -s)" - ISSO VAI INICIAR O AGENTE SSH
 ssh-add ~/.ssh/id_ed25519 - ESTAMOS ADICIONANDO A CHAVE SSH AO AGENTE SSH
 
+CASO VOCÊ TENHA UMA CHAVE SSH, ACESSE NO GIT BASH NA PASTA .SSH:
+nano config - ELA PERMITE CONFIGURAR A CHAVE SSH, NESSE CASO IREMOS CONFIGURAR UMA OUTRA PORTA.
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+ctrl + o para salvar
+ctrl + x para sair
+
+ssh -T git@github.com (vai verificar as conexões entre a chave ssh e a conta do github)
+
 A CONFIGURAÇÃO DO SSH É MAIS DO QUE UMA FERRAMENTE DE CLONE DE REPOSITORIO, O SSH VAI PERMITIR INTEGRAR REPOSITORIO LOCAIS PARA REPOSITORIO REMOTOS ATRAVÉS DA AUTENTICAÇÃO DO AGENTE SSH QUE UMA VEZ CONFIGURADO, SERÁ NECESSÁRIO SOMENTE A SENHA DE SUA CRIAÇÃO PARA AUTENTICAÇÃO
 
 CRIANDO E CLONADO REPOSITORIO
@@ -43,6 +54,9 @@ repositorio remoto seria a ideia de um repositorio que está localizado em outro
 
 INTEGRANDO REPOSITORIO LOCAL A UM REPOSITORIO REMOTO
 cd pasta_repositorio_local
+git branch vai te dar todos acesso as branch criadas no seu repositorio local;
+git branch nova_branch cria uma branch
+git branch -d nonebranch vai deletar uma das branch desejada pelo programador
 git init - usado para inicar um novo repositorio git em um diretorio local
 git status - verifica os status dos arquivos que foram ou não foram adicionados ao repositorio git
 git add nome_arquivo nome arquivo ou apenas seleciona tudo com *  ou . (ISSO VAI GARANTIR QUE VOCÊ ADICINOU UM ARQUIVO PARA O REPOSITORIO GIT OU VÁRIOS ARQUIVOS)
